@@ -26,5 +26,5 @@ jobs:
 
     - name: Execute Python script
       env:
-        SECRET_KEY: ${{ secrets.SIGNING_SECRET }}
+        SIGNING_SECRET: ${{ secrets.SIGNING_SECRET }}
       run: python abc.py # Command to run your script
