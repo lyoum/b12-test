@@ -13,6 +13,7 @@ if not secret_key:
 # Prepare payload data
 repo = os.environ["GITHUB_REPOSITORY"]
 run_id = os.environ["GITHUB_RUN_ID"]
+print(f"Repository: {repo}, Run ID: {run_id}")
 payload = {
     "timestamp": datetime.now(timezone.utc).isoformat(timespec="milliseconds").replace("+00:00", "Z"),
     "name": "Low You Ming",
