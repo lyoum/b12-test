@@ -25,4 +25,6 @@ jobs:
       # This step is conditional and will only run if requirements.txt exists
 
     - name: Execute Python script
+      env:
+        SECRET_KEY: ${{ secrets.SIGNING_SECRET }}
       run: python abc.py # Command to run your script
