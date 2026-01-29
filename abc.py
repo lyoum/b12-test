@@ -11,16 +11,18 @@ if not secret_key:
     raise RuntimeError("SIGNING_SECRET not set")
 
 # Prepare payload data
-repo = os.environ["GITHUB_REPOSITORY"]
-run_id = os.environ["GITHUB_RUN_ID"]
-print(f"Repository: {repo}, Run ID: {run_id}")
+run_url = (
+    f"{os.environ['GITHUB_SERVER_URL']}/"
+    f"{os.environ['GITHUB_REPOSITORY']}/"
+    f"actions/runs/{os.environ['GITHUB_RUN_ID']}"
+)
 payload = {
     "timestamp": datetime.now(timezone.utc).isoformat(timespec="milliseconds").replace("+00:00", "Z"),
     "name": "Low You Ming",
     "email": "lyming97@gmail.com",
     "resume_link": "https://my.linkedin.com/in/you-ming-low-3b7370158",
-    "repository_link": repo,
-    "action_run_link": run_id
+    "repository_link": "https://github.com/lyoum/b12-test",
+    "action_run_link": run_url
 }
 
 # Canonicalize JSON: sorted keys, compact separators, UTF-8 encoding
